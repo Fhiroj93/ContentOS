@@ -5,7 +5,7 @@ import IdeaBriefing from "./pages/IdeaBriefing";
 import CompetitorFeed from "./pages/CompetitorFeed";
 import Analytics from "./pages/Analytics";
 import PublishNow from "./pages/PublishNow";
-import "./index.css";
+
 
 export default function App() {
   const [activePage, setActivePage] = useState("queue");
