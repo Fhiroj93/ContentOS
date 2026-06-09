@@ -6,7 +6,7 @@ const NAV = [
   { id: "analytics",   label: "Analytics",         icon: "⬡",  desc: "Performance data" },
 ];
 
-export default function Sidebar({ activePage, setActivePage }) {
+export default function Sidebar({ activePage, setActivePage, theme, setTheme }) {
   return (
     <aside style={{
       width: "var(--sidebar-w)",
@@ -17,19 +17,25 @@ export default function Sidebar({ activePage, setActivePage }) {
       flexShrink: 0,
       height: "100vh",
       overflow: "hidden",
+      boxShadow: "var(--shadow)",
     }}>
       {/* Logo */}
       <div style={{ padding: "22px 20px 18px", borderBottom: "1px solid var(--border)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 9 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{
-            width: 28, height: 28,
-            background: "var(--accent)",
-            borderRadius: 7,
+            width: 34, height: 34,
+            background: "var(--accent-grad)",
+            borderRadius: 10,
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 13, color: "#fff", fontWeight: 700,
+            fontSize: 15, color: "#fff", fontWeight: 800,
+            boxShadow: "var(--shadow-glow)",
           }}>C</div>
           <div>
-            <div style={{ fontSize: 13, fontWeight: 600, color: "var(--text)" }}>ContentOS</div>
+            <div style={{
+              fontSize: 15, fontWeight: 700, letterSpacing: "-0.3px",
+              background: "var(--accent-grad)",
+              WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent",
+            }}>ContentOS</div>
             <div style={{ fontSize: 10, color: "var(--text3)", marginTop: 1 }}>Powered by n8n + AI</div>
           </div>
         </div>
@@ -45,7 +51,7 @@ export default function Sidebar({ activePage, setActivePage }) {
               onClick={() => setActivePage(item.id)}
               style={{
                 display: "flex", alignItems: "center", gap: 10,
-                padding: "9px 12px",
+                padding: "10px 12px",
                 borderRadius: "var(--radius-sm)",
                 border: "none",
                 background: active ? "var(--accent-dim)" : "transparent",
@@ -53,21 +59,49 @@ export default function Sidebar({ activePage, setActivePage }) {
                 cursor: "pointer",
                 textAlign: "left",
                 width: "100%",
-                transition: "all 0.12s",
+                transition: "all 0.15s",
                 outline: "none",
+                position: "relative",
               }}
-              onMouseEnter={e => { if (!active) e.currentTarget.style.background = "var(--surface2)"; e.currentTarget.style.color = "var(--text)"; }}
+              onMouseEnter={e => { if (!active) { e.currentTarget.style.background = "var(--surface2)"; e.currentTarget.style.color = "var(--text)"; } }}
               onMouseLeave={e => { if (!active) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--text2)"; } }}
             >
+              {active && (
+                <span style={{
+                  position: "absolute", left: 0, top: 8, bottom: 8, width: 3,
+                  background: "var(--accent-grad)", borderRadius: 3,
+                }} />
+              )}
               <span style={{ fontSize: 15, width: 18, textAlign: "center", flexShrink: 0 }}>{item.icon}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: active ? 600 : 400, lineHeight: 1.2 }}>{item.label}</div>
+                <div style={{ fontSize: 13, fontWeight: active ? 700 : 500, lineHeight: 1.2 }}>{item.label}</div>
                 <div style={{ fontSize: 11, color: active ? "var(--accent)" : "var(--text3)", marginTop: 1 }}>{item.desc}</div>
               </div>
             </button>
           );
         })}
       </nav>
+
+      {/* Theme toggle */}
+      <div style={{ padding: "12px 14px 0" }}>
+        <div className="theme-toggle">
+          <button
+            className={theme === "light" ? "active" : ""}
+            onClick={() => setTheme?.("light")}
+            aria-label="Light theme"
+          >
+            ☀ Light
+          </button>
+          <button
+            className={theme === "dark" ? "active" : ""}
+            onClick={() => setTheme?.("dark")}
+            aria-label="Dark theme"
+          >
+            ☾ Dark
+          </button>
+        </div>
+      </div>
+
 
       {/* Footer */}
       <div style={{ padding: "14px 16px", borderTop: "1px solid var(--border)" }}>
