@@ -1,9 +1,9 @@
 const NAV = [
-  { id: "queue",       label: "Content Queue",    icon: "☰",  desc: "Drafts & scheduled" },
-  { id: "publish",     label: "Publish Now",       icon: "✦",  desc: "Draft & post live" },
-  { id: "ideas",       label: "Idea Briefing",     icon: "◈",  desc: "Today's AI ideas" },
-  { id: "competitors", label: "Competitor Feed",   icon: "◎",  desc: "Niche intel" },
-  { id: "analytics",   label: "Analytics",         icon: "⬡",  desc: "Performance data" },
+  { id: "queue",       label: "Content Queue",  icon: "▦", desc: "Drafts & scheduled" },
+  { id: "publish",     label: "Publish Now",    icon: "◆", desc: "Draft & post live" },
+  { id: "ideas",       label: "Idea Briefing",  icon: "✳", desc: "Today's AI ideas" },
+  { id: "competitors", label: "Competitor Feed",icon: "◎", desc: "Niche intel" },
+  { id: "analytics",   label: "Analytics",      icon: "▲", desc: "Performance data" },
 ];
 
 export default function Sidebar({ activePage, setActivePage, theme, setTheme }) {
@@ -17,32 +17,33 @@ export default function Sidebar({ activePage, setActivePage, theme, setTheme }) 
       flexShrink: 0,
       height: "100vh",
       overflow: "hidden",
-      boxShadow: "var(--shadow)",
     }}>
       {/* Logo */}
-      <div style={{ padding: "22px 20px 18px", borderBottom: "1px solid var(--border)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+      <div style={{ padding: "22px 18px 20px" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
           <div style={{
-            width: 34, height: 34,
+            width: 40, height: 40,
             background: "var(--accent-grad)",
-            borderRadius: 10,
+            borderRadius: "50%",
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 15, color: "#fff", fontWeight: 800,
+            fontSize: 17, color: "#fff", fontWeight: 700,
             boxShadow: "var(--shadow-glow)",
-          }}>C</div>
+          }}>✦</div>
           <div>
             <div style={{
-              fontSize: 15, fontWeight: 700, letterSpacing: "-0.3px",
-              background: "var(--accent-grad)",
-              WebkitBackgroundClip: "text", backgroundClip: "text", color: "transparent",
+              fontFamily: "var(--display)",
+              fontSize: 17, fontWeight: 700, letterSpacing: "-0.4px", color: "var(--text)",
             }}>ContentOS</div>
-            <div style={{ fontSize: 10, color: "var(--text3)", marginTop: 1 }}>Powered by n8n + AI</div>
+            <div style={{
+              fontFamily: "var(--mono)", fontSize: 9.5, letterSpacing: "0.22em",
+              textTransform: "uppercase", color: "var(--text3)", marginTop: 2,
+            }}>Command Center</div>
           </div>
         </div>
       </div>
 
       {/* Nav */}
-      <nav style={{ flex: 1, padding: "12px 10px", display: "flex", flexDirection: "column", gap: 2 }}>
+      <nav style={{ flex: 1, padding: "4px 12px", display: "flex", flexDirection: "column", gap: 4, overflowY: "auto" }}>
         {NAV.map(item => {
           const active = activePage === item.id;
           return (
@@ -50,32 +51,31 @@ export default function Sidebar({ activePage, setActivePage, theme, setTheme }) 
               key={item.id}
               onClick={() => setActivePage(item.id)}
               style={{
-                display: "flex", alignItems: "center", gap: 10,
-                padding: "10px 12px",
-                borderRadius: "var(--radius-sm)",
-                border: "none",
-                background: active ? "var(--accent-dim)" : "transparent",
-                color: active ? "var(--accent)" : "var(--text2)",
+                display: "flex", alignItems: "center", gap: 12,
+                padding: "11px 14px",
+                borderRadius: 999,
+                border: "1px solid",
+                borderColor: active ? "var(--accent-border)" : "transparent",
+                background: active ? "var(--accent-grad)" : "transparent",
+                color: active ? "#fff" : "var(--text2)",
+                boxShadow: active ? "var(--shadow-glow)" : "none",
                 cursor: "pointer",
                 textAlign: "left",
                 width: "100%",
-                transition: "all 0.15s",
+                transition: "all 0.18s ease",
                 outline: "none",
-                position: "relative",
+                fontFamily: "var(--font)",
               }}
               onMouseEnter={e => { if (!active) { e.currentTarget.style.background = "var(--surface2)"; e.currentTarget.style.color = "var(--text)"; } }}
               onMouseLeave={e => { if (!active) { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = "var(--text2)"; } }}
             >
-              {active && (
-                <span style={{
-                  position: "absolute", left: 0, top: 8, bottom: 8, width: 3,
-                  background: "var(--accent-grad)", borderRadius: 3,
-                }} />
-              )}
-              <span style={{ fontSize: 15, width: 18, textAlign: "center", flexShrink: 0 }}>{item.icon}</span>
+              <span style={{ fontSize: 14, width: 18, textAlign: "center", flexShrink: 0, opacity: active ? 1 : 0.8 }}>{item.icon}</span>
               <div>
-                <div style={{ fontSize: 13, fontWeight: active ? 700 : 500, lineHeight: 1.2 }}>{item.label}</div>
-                <div style={{ fontSize: 11, color: active ? "var(--accent)" : "var(--text3)", marginTop: 1 }}>{item.desc}</div>
+                <div style={{ fontSize: 13.5, fontWeight: active ? 600 : 500, lineHeight: 1.25 }}>{item.label}</div>
+                <div style={{
+                  fontFamily: "var(--mono)", fontSize: 9.5, letterSpacing: "0.12em", textTransform: "uppercase",
+                  color: active ? "#ffffffcc" : "var(--text3)", marginTop: 2,
+                }}>{item.desc}</div>
               </div>
             </button>
           );
@@ -83,7 +83,7 @@ export default function Sidebar({ activePage, setActivePage, theme, setTheme }) 
       </nav>
 
       {/* Theme toggle */}
-      <div style={{ padding: "12px 14px 0" }}>
+      <div style={{ padding: "12px 16px 0" }}>
         <div className="theme-toggle">
           <button
             className={theme === "light" ? "active" : ""}
@@ -102,19 +102,22 @@ export default function Sidebar({ activePage, setActivePage, theme, setTheme }) 
         </div>
       </div>
 
-
       {/* Footer */}
-      <div style={{ padding: "14px 16px", borderTop: "1px solid var(--border)" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+      <div style={{ padding: "14px 16px 18px", marginTop: 12, borderTop: "1px solid var(--border)" }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{
-            width: 28, height: 28, borderRadius: "50%",
+            width: 30, height: 30, borderRadius: "50%",
             background: "var(--surface3)",
+            border: "1px solid var(--border2)",
             display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 11, fontWeight: 600, color: "var(--text2)",
+            fontSize: 11, fontWeight: 700, color: "var(--text2)", fontFamily: "var(--mono)",
           }}>S</div>
           <div>
-            <div style={{ fontSize: 12, fontWeight: 500, color: "var(--text)" }}>SaaS Client</div>
-            <div style={{ fontSize: 11, color: "var(--text3)" }}>Connected ● Live</div>
+            <div style={{ fontSize: 12.5, fontWeight: 600, color: "var(--text)" }}>SaaS Client</div>
+            <div style={{
+              fontFamily: "var(--mono)", fontSize: 9.5, letterSpacing: "0.14em", textTransform: "uppercase",
+              color: "var(--green)",
+            }}>● Connected · Live</div>
           </div>
         </div>
       </div>
