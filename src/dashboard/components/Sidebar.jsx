@@ -1,3 +1,5 @@
+import logoAsset from "@/assets/contentos-logo.png.asset.json";
+
 const NAV = [
   { id: "queue",       label: "Content Queue",  icon: "▦", desc: "Drafts & scheduled" },
   { id: "publish",     label: "Publish Now",    icon: "◆", desc: "Draft & post live" },
