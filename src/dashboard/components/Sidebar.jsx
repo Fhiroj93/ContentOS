@@ -99,9 +99,9 @@ export default function Sidebar({ activePage, setActivePage, theme, setTheme }) 
             border: "1px solid var(--border2)",
             display: "flex", alignItems: "center", justifyContent: "center",
             fontSize: 11, fontWeight: 700, color: "var(--text2)", fontFamily: "var(--mono)",
-          }}>S</div>
-          <div>
-            <div style={{ fontSize: 12.5, fontWeight: 600, color: "var(--text)" }}>SaaS Client</div>
+          }}>F</div>
+          <div style={{ minWidth: 0 }}>
+            <div style={{ fontSize: 11.5, fontWeight: 600, color: "var(--text)", overflowWrap: "anywhere" }}>fhirojshaik78693@gmail.com</div>
             <div style={{
               fontFamily: "var(--mono)", fontSize: 9.5, letterSpacing: "0.14em", textTransform: "uppercase",
               color: "var(--green)",
