@@ -22,27 +22,13 @@ export default function Sidebar({ activePage, setActivePage, theme, setTheme }) 
     }}>
       {/* Logo */}
       <div style={{ padding: "22px 18px 20px" }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 11 }}>
-          <div style={{
-            width: 40, height: 40,
-            background: "var(--accent-grad)",
-            borderRadius: "50%",
-            display: "flex", alignItems: "center", justifyContent: "center",
-            fontSize: 17, color: "#fff", fontWeight: 700,
-            boxShadow: "var(--shadow-glow)",
-          }}>✦</div>
-          <div>
-            <div style={{
-              fontFamily: "var(--display)",
-              fontSize: 17, fontWeight: 700, letterSpacing: "-0.4px", color: "var(--text)",
-            }}>ContentOS</div>
-            <div style={{
-              fontFamily: "var(--mono)", fontSize: 9.5, letterSpacing: "0.22em",
-              textTransform: "uppercase", color: "var(--text3)", marginTop: 2,
-            }}>Command Center</div>
-          </div>
-        </div>
+        <img
+          src={logoAsset.url}
+          alt="ContentOS"
+          style={{ width: "100%", maxWidth: 190, height: "auto", display: "block" }}
+        />
       </div>
+
 
       {/* Nav */}
       <nav style={{ flex: 1, padding: "4px 12px", display: "flex", flexDirection: "column", gap: 4, overflowY: "auto" }}>
