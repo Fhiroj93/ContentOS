@@ -1,4 +1,4 @@
-import logoAsset from "@/assets/contentos-logo.png.asset.json";
+
 
 const NAV = [
   { id: "queue",       label: "Content Queue",  icon: "▦", desc: "Drafts & scheduled" },
@@ -21,12 +21,10 @@ export default function Sidebar({ activePage, setActivePage, theme, setTheme }) 
       overflow: "hidden",
     }}>
       {/* Logo */}
-      <div style={{ padding: "22px 18px 20px" }}>
-        <img
-          src={logoAsset.url}
-          alt="ContentOS"
-          style={{ width: "100%", maxWidth: 190, height: "auto", display: "block" }}
-        />
+      <div style={{ padding: "20px 16px 18px" }}>
+        <div className="logo-wrap">
+          <img src="/ContentOsLogo.png" alt="ContentOS" className="logo-img" />
+        </div>
       </div>
 
 
