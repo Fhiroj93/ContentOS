@@ -592,3 +592,17 @@ select.field { appearance: none; cursor: pointer; }
   .stat-grid { grid-template-columns: 1fr; }
   .page-title { font-size: 23px; }
 }
+
+@media (max-width: 860px) {
+  .chip-row {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 2px;
+  }
+  .chip-row::-webkit-scrollbar { display: none; }
+  .chip-row > * { flex: 0 0 auto; }
+  .controls-row { flex-direction: column; align-items: stretch !important; gap: 10px !important; }
+  .controls-row select.field { width: 100% !important; }
+}
