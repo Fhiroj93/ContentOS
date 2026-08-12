@@ -93,8 +93,8 @@ export default function CompetitorFeed() {
       </div>
 
       {/* Controls */}
-      <div style={{ display: "flex", gap: 12, marginBottom: 18, alignItems: "center", justifyContent: "space-between" }}>
-        <div style={{ display: "flex", gap: 6 }}>
+      <div className="controls-row" style={{ display: "flex", gap: 12, marginBottom: 18, alignItems: "center", justifyContent: "space-between" }}>
+        <div className="chip-row" style={{ display: "flex", gap: 6 }}>
           {["all", ...competitors].map(c => (
             <button
               key={c}
