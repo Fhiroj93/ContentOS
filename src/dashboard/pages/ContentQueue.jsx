@@ -69,7 +69,7 @@ export default function ContentQueue() {
       </div>
 
       {/* Filter tabs */}
-      <div style={{ display: "flex", gap: 6, marginBottom: 20 }}>
+      <div className="chip-row" style={{ display: "flex", gap: 6, marginBottom: 20 }}>
         {["all", "draft", "approved", "scheduled", "published"].map(f => (
           <button
             key={f}

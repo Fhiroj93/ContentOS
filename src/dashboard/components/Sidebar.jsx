@@ -8,9 +8,9 @@ const NAV = [
   { id: "analytics",   label: "Analytics",      icon: "▲", desc: "Performance data" },
 ];
 
-export default function Sidebar({ activePage, setActivePage, theme, setTheme }) {
+export default function Sidebar({ activePage, setActivePage, theme, setTheme, open }) {
   return (
-    <aside style={{
+    <aside className={`sidebar${open ? " open" : ""}`} style={{
       width: "var(--sidebar-w)",
       background: "var(--surface)",
       borderRight: "1px solid var(--border)",

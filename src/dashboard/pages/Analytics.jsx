@@ -33,7 +33,7 @@ export default function Analytics() {
       </div>
 
       {/* Two-column */}
-      <div style={{ display: "grid", gridTemplateColumns: "1.6fr 1fr", gap: 16, marginBottom: 16 }}>
+      <div className="grid-2 grid-2-wide" style={{ marginBottom: 16 }}>
 
         {/* Top posts */}
         <div className="card">
