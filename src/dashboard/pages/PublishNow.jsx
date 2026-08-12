@@ -118,7 +118,7 @@ export default function PublishNow() {
         <div className="page-sub">Enter a topic → AI drafts in your brand voice → review → publish directly via platform API</div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 20 }}>
+      <div className="grid-2" style={{ gap: 20 }}>
 
         {/* Left — Input & Controls */}
         <div style={{ display: "flex", flexDirection: "column", gap: 16 }}>
