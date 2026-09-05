@@ -6,7 +6,7 @@
 
 ---
 
-## 📖 Overview
+## 📖 Overview 
 
 ContentOS is a content operations dashboard built for SaaS marketing teams who publish across multiple channels and need one place to manage the entire pipeline — from AI-generated idea to published post to performance report.
 
